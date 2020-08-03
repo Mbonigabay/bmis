@@ -1,0 +1,72 @@
+<div th:fragment="messages">
+  <div
+    class="message-alert position-absolute"
+    style="z-index: 5; top: 5px; right: 5px;"
+  >
+    <div
+      class="message-success card my-1 d-flex flex-row justify-content-center align-items-center"
+      th:if="${messageSuccess}"
+    >
+      <div
+        class="message d-flex flex-row justify-content-center align-items-center p-1"
+      >
+        <i class="fa fa-check fa-3x text-success mx-3"></i>
+        <div class="message-content p-1">
+          <h2 class="text-success">New notification</h2>
+          <p class="text-muted">[(${messageSuccess})]</p>
+        </div>
+      </div>
+      <div class="message-button mr-3">
+        <button class="btn">Close</button>
+      </div>
+    </div>
+    <div
+      class="message-fail card w-50 my-1 d-flex flex-row justify-content-center align-items-center"
+      th:if="${messageError}"
+    >
+      <div
+        class="message d-flex flex-row justify-content-center align-items-center p-1"
+      >
+        <i class="fa fa-times fa-3x text-danger mx-3"></i>
+        <div class="message-content p-1">
+          <h2 class="text-danger">Something went wrong</h2>
+          <p class="text-muted">[(${messageError})]</p>
+        </div>
+      </div>
+      <div class="message-button-fail mr-3">
+        <button class="btn">Close</button>
+      </div>
+    </div>
+    <div
+      class="message-fail card w-50 my-1 d-flex flex-row justify-content-center align-items-center"
+      th:if="${loginError}"
+    >
+      <div
+        class="message d-flex flex-row justify-content-center align-items-center p-1"
+      >
+        <i class="fa fa-times fa-3x text-danger mx-3"></i>
+        <div class="message-content p-1">
+          <h2 class="text-danger">Something went wrong</h2>
+          <p class="text-muted">[(${loginError})]</p>
+        </div>
+      </div>
+      <div class="message-button-fail mr-3">
+        <button class="btn">Close</button>
+      </div>
+    </div>
+
+    <script th:inline="javascript">
+      var closeButton = document.querySelector(".message-button");
+      var messageAlert = document.querySelector(".message-alert");
+
+      if (closeButton != null) {
+        closeButton.addEventListener("click", function () {
+          messageAlert.remove();
+        });
+        setTimeout(function () {
+          messageAlert.remove();
+        }, 10000);
+      }
+    </script>
+  </div>
+</div>

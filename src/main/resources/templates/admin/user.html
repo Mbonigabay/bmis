@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.min.css" />
+    <link rel="stylesheet" href="/css/paper-dashboard.css" />
+    <!-- <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"
+    /> -->
+    <!-- fontawesome -->
+    <script src="/js/jquery-1.10.2.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"
+    ></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/login-register.js"></script>
+    <script src="/js/bootstrap-notify.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div th:replace="inc/sidebar :: sidebar"></div>
+      <div class="main-panel">
+        <div class="content">
+          <div th:replace="inc/dashboardCard :: dashboardCard"></div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Simple Table</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table id="usertable" class="table">
+                      <thead class="text-primary">
+                        <tr>
+                          <th>
+                            First Name
+                          </th>
+                          <th>
+                            Last Name
+                          </th>
+                          <th>
+                            Username
+                          </th>
+                          <th>
+                            Phone Number
+                          </th>
+                          <th>
+                            Email
+                          </th>
+                          <th>
+                            Actions
+                          </th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form 
+            th:action="@{/users}"
+            th:object="${user}"
+            method="post">
+              <h3>Add a user</h3>
+              <div th:replace="inc/forms/createUser :: createUser"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script th:inline="javascript">
+      $(document).ready(function () {
+        var table = $("#usertable").DataTable({
+          sAjaxSource: "/api/users",
+          sAjaxDataProp: "",
+          columns: [
+            { data: "firstName" },
+            { data: "lastName" },
+            { data: "username" },
+            { data: "phone" },
+            { data: "email" },
+            {
+              mRender: function (data, type, row) {
+                return (
+                  '<div class="btn-group"><a class="btn btn-outline-dark btn-sm" href=add.html?id="' +
+                  row.id +
+                  '">Edit</a> <a class="btn btn-outline-dark btn-sm" href=add.html?id="' +
+                  row.id +
+                  '">Delete</a></div>'
+                );
+              },
+              searchable: false,
+            },
+          ],
+          sdefaultContent: "<button>Click!</button>",
+        });
+      });
+    </script>
+  </body>
+</html>
