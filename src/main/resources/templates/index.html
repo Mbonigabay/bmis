@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout('Homepage', ~{::main})}" lang="en">
+  <body>
+    <main>
+        <nav class="navbar navbar-transparent navbar-fixed-top" role="navigation">
+            <div class="container">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button
+                  type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-1"
+                >
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+      
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <!-- <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <img src="images/flags/US.png" />
+                      English(US)
+                      <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="#"><img src="images/flags/DE.png" /> Deutsch</a>
+                      </li>
+                      <li>
+                        <a href="#"><img src="images/flags/GB.png" /> English(UK)</a>
+                      </li>
+                      <li>
+                        <a href="#"><img src="images/flags/FR.png" /> Français</a>
+                      </li>
+                      <li>
+                        <a href="#"><img src="images/flags/RO.png" /> Română</a>
+                      </li>
+                      <li>
+                        <a href="#"><img src="images/flags/IT.png" /> Italiano</a>
+                      </li>
+      
+                      <li class="divider"></li>
+                      <li>
+                        <a href="#"
+                          ><img src="images/flags/ES.png" /> Español
+                          <span class="label label-default">soon</span></a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><img src="images/flags/BR.png" /> Português
+                          <span class="label label-default">soon</span></a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><img src="images/flags/JP.png" /> 日本語
+                          <span class="label label-default">soon</span></a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><img src="images/flags/TR.png" /> Türkçe
+                          <span class="label label-default">soon</span></a
+                        >
+                      </li>
+                    </ul>
+                  </li> -->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <a
+                      data-toggle="modal"
+                      href="javascript:void(0)"
+                      onclick="openLoginModal();"
+                    >
+                      <i class="fa fa-envelope-o"></i>
+                      Login
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+          </nav>
+          <div
+            class="main"
+            style="background-image: url('/img/default1.jpg');"
+          >
+            <!--    Change the image source '/images/default.jpg' with your favourite image.     -->
+      
+            <div class="cover black" data-color="black"></div>
+      
+            <!--   You can change the black color for the filter with those colors: blue, green, red, orange       -->
+      
+            <div class="container">
+              <h1 class="logo cursive">
+                BMIS
+              </h1>
+              <!--  H1 can have 2 designs: "logo" and "logo cursive"           -->
+      
+              <div class="content">
+                <h4 class="motto">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, minus?
+                </h4>
+              </div>
+            </div>
+            <!-- Login Model -->
+            <div class="modal fade login" id="loginModal">
+              <div class="modal-dialog login animated">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-hidden="true"
+                    >
+                      &times;
+                    </button>
+                    <h4 class="modal-title">Login with</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="box">
+                      <div class="content">
+                        <div class="social">
+                          <a class="circle github" href="#">
+                            <i class="fa fa-github fa-fw"></i>
+                          </a>
+                          <a id="google_login" class="circle google" href="#">
+                            <i class="fa fa-google-plus fa-fw"></i>
+                          </a>
+                          <a id="facebook_login" class="circle facebook" href="#">
+                            <i class="fa fa-facebook fa-fw"></i>
+                          </a>
+                        </div>
+                        <div class="division">
+                          <div class="line l"></div>
+                          <span>or</span>
+                          <div class="line r"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="form loginBox">
+                          <form id="loginForm" th:action="@{/login}" method="post" accept-charset="UTF-8">
+                            <input
+                              id="username"
+                              class="form-control"
+                              type="text"
+                              placeholder="Username"
+                              name="username"
+                            />
+                            <input
+                              id="password"
+                              class="form-control"
+                              type="password"
+                              placeholder="Password"
+                              name="password"
+                            />
+                            <input
+                              class="btn btn-default btn-login"
+                              type="submit"
+                              value="Login"
+                            />
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="box">
+                      <div class="content registerBox" style="display: none;">
+                        <div class="form">
+                          <form
+                            method=""
+                            html="{:multipart=>true}"
+                            data-remote="true"
+                            action=""
+                            accept-charset="UTF-8"
+                          >
+                            <input
+                              id="email"
+                              class="form-control"
+                              type="text"
+                              placeholder="Email"
+                              name="email"
+                            />
+                            <input
+                              id="password"
+                              class="form-control"
+                              type="password"
+                              placeholder="Password"
+                              name="password"
+                            />
+                            <input
+                              id="password_confirmation"
+                              class="form-control"
+                              type="password"
+                              placeholder="Repeat Password"
+                              name="password_confirmation"
+                            />
+                            <input
+                              class="btn btn-default btn-register"
+                              type="button"
+                              value="Create account"
+                              name="commit"
+                            />
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="forgot login-footer">
+                      <span
+                        >Looking to
+                        <a href="javascript: showRegisterForm();"
+                          >create an account</a
+                        >
+                        ?</span
+                      >
+                    </div>
+                    <div class="forgot register-footer" style="display: none;">
+                      <span>Already have an account?</span>
+                      <a href="javascript: showLoginForm();">Login</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="footer">
+              <div class="container">
+                Copyright by MUHOZA
+              </div>
+            </div>
+          </div>
+    </main>
+  </body>
+</html>
