@@ -14,10 +14,13 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -52,6 +55,8 @@ public class User {
     @Size(min=7, message = "Password should be at least 7 characters")
     private String password;
     private String roles;
+    @JsonIgnore
+    @ToString.Exclude
     @OneToOne(mappedBy = "user")
     private InfoFile infoFile; 
     @ManyToOne
