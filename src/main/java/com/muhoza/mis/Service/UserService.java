@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service;
 
 public interface UserService {
     List<User> getAllUsers();
+    User createUser(User user);
 }

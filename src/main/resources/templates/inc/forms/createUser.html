@@ -3,23 +3,20 @@
         <div class="col-md-5 pr-1">
           <div class="form-group">
             <label>Project</label>
-            <input
-              type="text"
-              class="form-control"
-              disabled=""
-              placeholder="Company"
-              value="Creative Code Inc."
-            />
+            <select id="projectId" name="projectId"  class="form-control">
+              <option value="">--- Select Project ---</option>
+              <option th:each="project : ${projects}" th:value="${project.id}">[(${project.name})]</option>
+            </select>
           </div>
         </div>
         <div class="col-md-3 px-1">
           <div class="form-group">
             <label>Username</label>
             <input
+            th:field="*{username}"
               type="text"
               class="form-control"
               placeholder="Username"
-              value="michael23"
             />
           </div>
         </div>
@@ -27,7 +24,8 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
-              type="email"
+            th:field="*{email}"
+            type="email"
               class="form-control"
               placeholder="Email"
             />
@@ -39,10 +37,10 @@
           <div class="form-group">
             <label>First Name</label>
             <input
-              type="text"
+            th:field="*{firstName}"
+            type="text"
               class="form-control"
-              placeholder="Company"
-              value="Chet"
+              placeholder="First Name"
             />
           </div>
         </div>
@@ -50,10 +48,10 @@
           <div class="form-group">
             <label>Last Name</label>
             <input
-              type="text"
+            th:field="*{lastName}"
+            type="text"
               class="form-control"
               placeholder="Last Name"
-              value="Faker"
             />
           </div>
         </div>
@@ -63,10 +61,10 @@
           <div class="form-group">
             <label>Phone Number</label>
             <input
-              type="text"
+            th:field="*{phone}"
+            type="text"
               class="form-control"
-              placeholder="Home Address"
-              value="Melbourne, Australia"
+              placeholder="Phone Number"
             />
           </div>
         </div>
@@ -76,10 +74,10 @@
           <div class="form-group">
             <label>Password</label>
             <input
-              type="text"
+            th:field="*{password}"
+            type="text"
               class="form-control"
-              placeholder="Home Address"
-              value="Melbourne, Australia"
+              placeholder="Password"
             />
           </div>
         </div>

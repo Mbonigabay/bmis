@@ -97,7 +97,7 @@
 				<version>3.0.2</version>
 				<configuration>
 					<processTypes>
-						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.vng.firstvngproject.FirstVngProjectApplication</web>
+						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.muhoza.mis.MisApplication</web>
 					</processTypes>
 				</configuration>
 			</plugin>

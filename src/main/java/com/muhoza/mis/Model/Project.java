@@ -7,7 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -17,6 +20,8 @@ public class Project {
     @GeneratedValue
     private Integer id;
     private String name;
+    @JsonIgnore
+    @ToString.Exclude
     @OneToMany(mappedBy = "project")
     private List<User> users;
 }
