@@ -2,8 +2,11 @@ package com.muhoza.mis.Controller;
 
 import java.util.List;
 
+import com.muhoza.mis.Model.Beneficiary;
+import com.muhoza.mis.Model.Project;
 import com.muhoza.mis.Model.User;
-import com.muhoza.mis.Repository.UserRepository;
+import com.muhoza.mis.Service.BeneficiaryService;
+import com.muhoza.mis.Service.ProjectService;
 import com.muhoza.mis.Service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +20,26 @@ public class ApiController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    ProjectService projectService;
+
+    @Autowired
+    BeneficiaryService beneficiaryService;
     
     @RequestMapping(value="/users")
     public @ResponseBody List<User> getUsers() {	
         return userService.getAllUsers();
+    }
+
+    @RequestMapping(value="/projects")
+    public @ResponseBody List<Project> getProjects() {	
+        return projectService.getAllProjects();
+    }
+
+    @RequestMapping(value="/beneficiaries")
+    public @ResponseBody List<Beneficiary> getBeneficiaries() {	
+        return beneficiaryService.getAllBeneficiaries();
     }
     
 }

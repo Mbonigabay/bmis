@@ -74,7 +74,7 @@
                   </li> -->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li>
+                  <li sec:authorize="!isAuthenticated()">
                     <a
                       data-toggle="modal"
                       href="javascript:void(0)"
@@ -82,6 +82,22 @@
                     >
                       <i class="fa fa-envelope-o"></i>
                       Login
+                    </a>
+                  </li>
+                  <li sec:authorize="isAuthenticated()">
+                    <a
+                    sec:authorize="hasAuthority('ROLE_ADMIN')"
+                    href="/admin"
+                    >
+                      <i class="fa fa-envelope-o"></i>
+                      Go to Dashboard
+                    </a>
+                    <a
+                    sec:authorize="hasAuthority('ROLE_USER')"
+                    href="/users"
+                    >
+                      <i class="fa fa-envelope-o"></i>
+                      Go to Dashboard
                     </a>
                   </li>
                 </ul>

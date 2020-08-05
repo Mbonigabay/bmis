@@ -7,4 +7,5 @@ import com.muhoza.mis.Model.Project;
 public interface ProjectService {
     List<Project> getAllProjects();
     Project findById(int id);
+    Project storeProject(Project project);
 }
