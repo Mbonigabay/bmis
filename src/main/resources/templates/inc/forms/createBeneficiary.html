@@ -1,143 +1,382 @@
 <div th:fragment="createBeneficiary">
-      <div class="row">
-        <div class="col-md-6 pr-1">
-          <div class="form-group">
-            <label>First Name</label>
-            <input
-            type="text"
-              class="form-control"
-              placeholder="First Name"
-            />
+  <div class="row">
+    <div class="col-md-6 pr-1">
+      <div class="form-group">
+        <label>First Name</label>
+        <input
+          type="text"
+          th:field="*{firstName}"
+          class="form-control"
+          placeholder="First Name"
+        />
+      </div>
+    </div>
+    <div class="col-md-6 pl-1">
+      <div class="form-group">
+        <label>Last Name</label>
+        <input
+          type="text"
+          th:field="*{lastName}"
+          class="form-control"
+          placeholder="Last Name"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 pr-1">
+      <div class="form-group">
+        <label>Gender</label>
+        <input
+          th:field="*{gender}"
+          type="text"
+          class="form-control"
+          placeholder="gender"
+        />
+      </div>
+    </div>
+    <div class="col-md-4 pl-1">
+      <div class="form-group">
+        <label>Age</label>
+        <input
+          th:field="*{age}"
+          type="text"
+          class="form-control"
+          placeholder="Age"
+        />
+      </div>
+    </div>
+    <div class="col-md-4 pl-1">
+      <div class="form-group">
+        <label>Status</label>
+        <input
+          th:field="*{status}"
+          type="text"
+          class="form-control"
+          placeholder="Status"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 pr-1">
+      <div class="form-group">
+        <label>Phone</label>
+        <input
+          th:field="*{phone}"
+          type="text"
+          class="form-control"
+          placeholder="Phone"
+        />
+      </div>
+    </div>
+    <div class="col-md-6 pl-1">
+      <div class="form-group">
+        <label>Other means of contact</label>
+        <input
+          type="text"
+          th:field="*{otherMeansOfContact}"
+          class="form-control"
+          placeholder="Other means of contact"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Disability</label>
+        <div class="row">
+          <div class="col-md-3 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="physical"
+                name="physical"
+                value="physical"
+                th:field="*{disability}"
+              />
+              <span>Physical</span><br />
+            </div>
+          </div>
+          <div class="col-md-3 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="senserialHearing"
+                name="senserialHearing"
+                value="senserial hearing"
+                th:field="*{disability}"
+              />
+              <span>Senserial Hearing</span><br />
+            </div>
+          </div>
+          <div class="col-md-3 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="senserialVisual"
+                name="senserialVisual"
+                value="senserial visual"
+                th:field="*{disability}"
+              />
+              <span>Senserial Visual</span><br />
+            </div>
+          </div>
+          <div class="col-md-3 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="intellectual"
+                name="intellectual"
+                value="intellectual"
+                th:field="*{disability}"
+              />
+              <span>Intellectual</span><br />
+            </div>
           </div>
         </div>
-        <div class="col-md-6 pl-1">
-          <div class="form-group">
-            <label>Last Name</label>
-            <input
-            type="text"
-              class="form-control"
-              placeholder="Last Name"
-            />
+        <div class="row">
+          <div class="col-md-3 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="psychological"
+                name="psychological"
+                value="psychological"
+                th:field="*{disability}"
+              />
+              <span>Psychological</span><br />
+            </div>
+          </div>
+          <div class="col-md-3 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="noDisability"
+                name="noDisability"
+                value="no disability"
+                th:field="*{disability}"
+              />
+              <span> No Disability</span><br />
+            </div>
+          </div>
+          <div class="col-md-3 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="unknown"
+                name="unknown"
+                value="unknown"
+                th:field="*{disability}"
+              />
+              <span>unknown</span><br />
+            </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6 pr-1">
-          <div class="form-group">
-            <label>Gender</label>
-            <input
-            type="text"
-              class="form-control"
-              placeholder="gender"
-            />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Reason of intervention</label>
+        <div class="row">
+          <div class="col-md-2 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="birthCongenitalDisease"
+                name="birthCongenitalDisease"
+                value="birth or congenital disease"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Birth or Congenital Disease</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="chronicDisease"
+                name="chronicDisease"
+                value="chronic disease"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Chronic Disease</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="otherDisease"
+                name="otherDisease"
+                value="other disease"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Other Disease</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="armedConflict"
+                name="armedConflict"
+                value="armed conflict"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Armed Conflict</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="naturalDisaster"
+                name="naturalDisaster"
+                value="natural disaster"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span> Natural Disaster</span><br />
+            </div>
           </div>
         </div>
-        <div class="col-md-6 pl-1">
-          <div class="form-group">
-            <label>Age</label>
-            <input
-            type="text"
-              class="form-control"
-              placeholder="Age"
-            />
+        <div class="row">
+          <div class="col-md-2 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="roadTrafficAccident"
+                name="roadTrafficAccident"
+                value="road traffic accident"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Road Traffic Accident</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="domesticAccident"
+                name="domesticAccident"
+                value="domestic accident"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Domestic Accident</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="gbv"
+                name="gbv"
+                value="gbv"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>GBV</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="discrimination"
+                name="discrimination"
+                value="discrimination"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Discrimination</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="ageing"
+                name="ageing"
+                value="ageing"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Ageing</span><br />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="mineOrExplosive"
+                name="mineOrExplosive"
+                value="mine or explosive"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Mine or Explosive</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="smallLightWeapon"
+                name="smallLightWeapon"
+                value="small or light weapon"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Small or Light Weapon</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pr-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="explosive"
+                name="explosive"
+                value="explosive"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>Explosive in Populated Area</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="unidentified"
+                name="unidentified"
+                value="unidentified"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>unidentified</span><br />
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="other"
+                name="other"
+                value="other"
+                th:field="*{reasonOfIntervention}"
+              />
+              <span>other</span><br />
+            </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6 pr-1">
-          <div class="form-group">
-            <label>Phone</label>
-            <input
-            type="text"
-              class="form-control"
-              placeholder="Phone"
-            />
-          </div>
-        </div>
-        <div class="col-md-6 pl-1">
-          <div class="form-group">
-            <label>Other means of contact</label>
-            <input
-            type="text"
-              class="form-control"
-              placeholder="Other means of contact"
-            />
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-sm">
+          Save Beneficiary
+        </button>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label>Disability</label>
-            <div class="row">
-                <div class="col-md-3 pr-1">
-                  <div class="form-group">
-                    <input type="checkbox" id="disability1" name="disability1" value="arm">
-                    <label for="vehicle1">no arm</label><br>
-                  </div>
-                </div>
-                <div class="col-md-3 pl-1">
-                  <div class="form-group">
-                    <input type="checkbox" id="disability2" name="disability2" value="feet">
-                    <label for="vehicle1"> no feet</label><br>
-                  </div>
-                </div>
-                <div class="col-md-3 pr-1">
-                  <div class="form-group">
-                    <input type="checkbox" id="disability1" name="disability1" value="arm">
-                    <label for="vehicle1">no arm</label><br>
-                  </div>
-                </div>
-                <div class="col-md-3 pl-1">
-                  <div class="form-group">
-                    <input type="checkbox" id="disability2" name="disability2" value="feet">
-                    <label for="vehicle1"> no feet</label><br>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label>Reason of intervention</label>
-            <div class="row">
-                <div class="col-md-3 pr-1">
-                  <div class="form-group">
-                    <input type="checkbox" id="disability1" name="disability1" value="arm">
-                    <label for="vehicle1">no arm</label><br>
-                  </div>
-                </div>
-                <div class="col-md-3 pl-1">
-                  <div class="form-group">
-                    <input type="checkbox" id="disability2" name="disability2" value="feet">
-                    <label for="vehicle1"> no feet</label><br>
-                  </div>
-                </div>
-                <div class="col-md-3 pr-1">
-                  <div class="form-group">
-                    <input type="checkbox" id="disability1" name="disability1" value="arm">
-                    <label for="vehicle1">no arm</label><br>
-                  </div>
-                </div>
-                <div class="col-md-3 pl-1">
-                  <div class="form-group">
-                    <input type="checkbox" id="disability2" name="disability2" value="feet">
-                    <label for="vehicle1"> no feet</label><br>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-sm">
-            Create User
-          </button>
-          </div>
-        </div>
-      </div>
+    </div>
+  </div>
 </div>

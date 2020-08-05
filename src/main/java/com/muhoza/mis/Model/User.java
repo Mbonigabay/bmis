@@ -1,6 +1,7 @@
 package com.muhoza.mis.Model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -57,8 +58,8 @@ public class User {
     private String roles;
     @JsonIgnore
     @ToString.Exclude
-    @OneToOne(mappedBy = "user")
-    private InfoFile infoFile; 
+    @OneToMany(mappedBy = "user")
+    private List<InfoFile> infoFile; 
     @ManyToOne
     @JoinColumn(name = "project_id")  
     private Project project;

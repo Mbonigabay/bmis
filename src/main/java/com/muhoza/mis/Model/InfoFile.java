@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,7 +22,7 @@ public class InfoFile {
     @GeneratedValue
     private Integer id;
     private String status;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="created_by")
     private User user;
     @OneToOne

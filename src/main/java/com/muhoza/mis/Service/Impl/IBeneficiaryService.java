@@ -19,5 +19,10 @@ public class IBeneficiaryService implements BeneficiaryService {
     public List<Beneficiary> getAllBeneficiaries() {
         return beneficiaryRepository.findAll();
     }
+
+    @Override
+    public Beneficiary storeBeneficiary(Beneficiary beneficiary) {
+        return beneficiaryRepository.save(beneficiary);
+    }
     
 }

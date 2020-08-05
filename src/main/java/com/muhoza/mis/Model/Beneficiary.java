@@ -25,7 +25,6 @@ public class Beneficiary {
     @Id
     @GeneratedValue
     private Integer id;
-    private Boolean active;
     private String firstName;
     @Size(min = 3, message = "Last name should be at least 3 character")
     private String lastName;
