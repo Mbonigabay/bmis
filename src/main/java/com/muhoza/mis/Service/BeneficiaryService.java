@@ -6,4 +6,5 @@ import com.muhoza.mis.Model.Beneficiary;
 
 public interface BeneficiaryService {
     List<Beneficiary> getAllBeneficiaries();
+    Beneficiary storeBeneficiary(Beneficiary beneficiary
 }

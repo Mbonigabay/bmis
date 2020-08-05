@@ -88,6 +88,8 @@
         <div class="modal-content">
           <div class="modal-body">
             <form 
+            th:action="@{/beneficiaries}"
+            th:object="${beneficiary}"
             method="post">
               <h3>Add a Beneficiary</h3>
               <div th:replace="inc/forms/createBeneficiary :: createBeneficiary"></div>
@@ -99,16 +101,16 @@
     <script th:inline="javascript">
       $(document).ready(function () {
         var table = $("#beneftable").DataTable({
-          sAjaxSource: "/api/beneficiaries",
+          sAjaxSource: "/api/beneficiariesbyuser",
           sAjaxDataProp: "",
           columns: [
-            { data: "firstName" },
-            { data: "lastName" },
-            { data: "phone" },
-            { data: "gender" },
-            { data: "age" },
-            { data: "disability" },
-            { data: "reasonOfIntervention" },
+            { data: "beneficiary.firstName" },
+            { data: "beneficiary.lastName" },
+            { data: "beneficiary.phone" },
+            { data: "beneficiary.gender" },
+            { data: "beneficiary.age" },
+            { data: "beneficiary.disability" },
+            { data: "beneficiary.reasonOfIntervention" },
             {
               mRender: function (data, type, row) {
                 return (
