@@ -1,17 +1,18 @@
 <div th:fragment="dashboardCard" class="row">
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <!-- ADMIN -->
+  <div sec:authorize="hasAuthority('ROLE_ADMIN')" class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body">
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-globe text-warning"></i>
+              <i class="nc-icon nc-circle-10 text-warning"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Users</p>
-              <p class="card-title">100</p>
+              <p class="card-title">[(${session.cardData.allUsers})]</p>
               <p></p>
             </div>
           </div>
@@ -20,27 +21,30 @@
       <div class="card-footer">
         <hr />
         <div class="stats">
-          <a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#exampleModal">
+          <a th:if="${#httpServletRequest.getRequestURI() == '/admin/user'}" style="text-decoration: none;" href="#" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-refresh"></i>
             Add User
           </a>
+          <div th:unless="${#httpServletRequest.getRequestURI() == '/admin/user'}">
+            All Users
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div sec:authorize="hasAuthority('ROLE_ADMIN')" class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body">
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-money-coins text-success"></i>
+              <i class="nc-icon nc-briefcase-24 text-success"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
-              <p class="card-category">Revenue</p>
-              <p class="card-title">$ 1,345</p>
+              <p class="card-category">Project</p>
+              <p class="card-title">[(${session.cardData.allProjects})]</p>
               <p></p>
             </div>
           </div>
@@ -49,24 +53,29 @@
       <div class="card-footer">
         <hr />
         <div class="stats">
-          <i class="fa fa-calendar-o"></i>
-          Last day
+          <a th:if="${#httpServletRequest.getRequestURI() == '/admin/project'}" style="text-decoration: none;" href="#" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-refresh"></i>
+            Add Project
+          </a>
+          <div th:unless="${#httpServletRequest.getRequestURI() == '/admin/project'}">
+            All Projects
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div sec:authorize="hasAuthority('ROLE_ADMIN')" class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body">
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-vector text-danger"></i>
+              <i class="nc-icon nc-single-02 text-danger"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
-              <p class="card-category">Errors</p>
+              <p class="card-category">Beneficiaries</p>
               <p class="card-title">23</p>
               <p></p>
             </div>
@@ -77,12 +86,12 @@
         <hr />
         <div class="stats">
           <i class="fa fa-clock-o"></i>
-          In the last hour
+          All Beneficiaries
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div sec:authorize="hasAuthority('ROLE_ADMIN')" class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body">
         <div class="row">
@@ -93,8 +102,8 @@
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
-              <p class="card-category">Followers</p>
-              <p class="card-title">+45K</p>
+              <p class="card-category">Lorem</p>
+              <p class="card-title">45</p>
               <p></p>
             </div>
           </div>
@@ -104,7 +113,41 @@
         <hr />
         <div class="stats">
           <i class="fa fa-refresh"></i>
-          Update now
+          Lorem ipsum
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User -->
+  <div sec:authorize="hasAuthority('ROLE_USER')" class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-circle-10 text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Beneficiaries</p>
+              <p class="card-title">[(${session.cardData.allBeneficiaries})]</p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class="stats">
+          <a th:if="${#httpServletRequest.getRequestURI() == '/users'}" style="text-decoration: none;" href="#" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-refresh"></i>
+            Add Beneficiaries
+          </a>
+          <div th:unless="${#httpServletRequest.getRequestURI() == '/users'}">
+            All Beneficiaries
+          </div>
         </div>
       </div>
     </div>

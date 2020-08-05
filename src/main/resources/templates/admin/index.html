@@ -6,11 +6,18 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/main.min.css" />
     <link rel="stylesheet" href="/css/paper-dashboard.css" />
-    <link
+    <!-- <link
+      type="text/css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
-    />
+      href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"
+    /> -->
+    <!-- fontawesome -->
     <script src="/js/jquery-1.10.2.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"
+    ></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="/js/login-register.js"></script>
     <script src="/js/bootstrap-notify.js"></script>
@@ -26,255 +33,40 @@
           <div th:replace="inc/dashboardCard :: dashboardCard"></div>
           <div class="row">
             <div class="col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Simple Table</h4>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead class="text-primary">
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Country
-                        </th>
-                        <th>
-                          City
-                        </th>
-                        <th class="text-right">
-                          Salary
-                        </th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                            Niger
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td class="text-right">
-                            $36,738
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            Curaçao
-                          </td>
-                          <td>
-                            Sinaai-Waas
-                          </td>
-                          <td class="text-right">
-                            $23,789
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            Netherlands
-                          </td>
-                          <td>
-                            Baileux
-                          </td>
-                          <td class="text-right">
-                            $56,142
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            Korea, South
-                          </td>
-                          <td>
-                            Overland Park
-                          </td>
-                          <td class="text-right">
-                            $38,735
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Malawi
-                          </td>
-                          <td>
-                            Feldkirchen in Kärnten
-                          </td>
-                          <td class="text-right">
-                            $63,542
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-right">
-                            $78,615
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Jon Porter
-                          </td>
-                          <td>
-                            Portugal
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-right">
-                            $98,615
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12">
               <div class="card card-plain">
                 <div class="card-header">
-                  <h4 class="card-title">Table on Plain Background</h4>
+                  <h4 class="card-title">Last added beneficiaries</h4>
                   <p class="card-category">Here is a subtitle for this table</p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table">
+                    <table id="beneftable" class="table">
                       <thead class="text-primary">
                         <th>
-                          Name
+                          First Name
                         </th>
                         <th>
-                          Country
+                          Last Name
                         </th>
                         <th>
-                          City
+                          Phone
                         </th>
-                        <th class="text-right">
-                          Salary
+                        <th>
+                          Gender
+                        </th>
+                        <th>
+                          Age
+                        </th>
+                        <th>
+                          Disability
+                        </th>
+                        <th>
+                          Reason of Intervention
+                        </th>
+                        <th>
+                          Actions
                         </th>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                            Niger
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td class="text-right">
-                            $36,738
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            Curaçao
-                          </td>
-                          <td>
-                            Sinaai-Waas
-                          </td>
-                          <td class="text-right">
-                            $23,789
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            Netherlands
-                          </td>
-                          <td>
-                            Baileux
-                          </td>
-                          <td class="text-right">
-                            $56,142
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            Korea, South
-                          </td>
-                          <td>
-                            Overland Park
-                          </td>
-                          <td class="text-right">
-                            $38,735
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Malawi
-                          </td>
-                          <td>
-                            Feldkirchen in Kärnten
-                          </td>
-                          <td class="text-right">
-                            $63,542
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-right">
-                            $78,615
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Jon Porter
-                          </td>
-                          <td>
-                            Portugal
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-right">
-                            $98,615
-                          </td>
-                        </tr>
-                      </tbody>
                     </table>
                   </div>
                 </div>
@@ -284,5 +76,35 @@
         </div>
       </div>
     </div>
+    <script th:inline="javascript">
+      $(document).ready(function () {
+        var table = $("#beneftable").DataTable({
+          sAjaxSource: "/api/beneficiaries",
+          sAjaxDataProp: "",
+          columns: [
+            { data: "firstName" },
+            { data: "lastName" },
+            { data: "phone" },
+            { data: "gender" },
+            { data: "age" },
+            { data: "disability" },
+            { data: "reasonOfIntervention" },
+            {
+              mRender: function (data, type, row) {
+                return (
+                  '<div class="btn-group"><a class="btn btn-outline-dark btn-sm" href=add.html?id="' +
+                  row.id +
+                  '">Edit</a> <a class="btn btn-outline-dark btn-sm" href=add.html?id="' +
+                  row.id +
+                  '">Delete</a></div>'
+                );
+              },
+              searchable: false,
+            },
+          ],
+          sdefaultContent: "<button>Click!</button>",
+        });
+      });
+    </script>
   </body>
 </html>

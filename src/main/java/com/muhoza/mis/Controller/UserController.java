@@ -28,6 +28,11 @@ public class UserController {
     
     @Autowired
     SecurityConfiguration security;
+
+    @RequestMapping("")
+    public String getUserPage() {
+        return "user/index";
+    }
     
     @PostMapping("")
     public String create(@ModelAttribute("user") User user, @RequestParam Integer projectId){

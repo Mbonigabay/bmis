@@ -1,0 +1,61 @@
+<div th:fragment="createProject">
+  <div class="row">
+    <div class="col-md-6 pr-1">
+      <div class="form-group">
+        <label>Project Name</label>
+        <input
+          th:field="*{name}"
+          type="text"
+          class="form-control"
+          placeholder="Project Name"
+        />
+      </div>
+    </div>
+    <!-- <div class="col-md-6 pl-1">
+          <div class="form-group">
+            <label>Last Name</label>
+            <input
+            th:field="*{lastName}"
+            type="text"
+              class="form-control"
+              placeholder="Last Name"
+            />
+          </div>
+        </div> -->
+  </div>
+  <!-- <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input
+            th:field="*{phone}"
+            type="text"
+              class="form-control"
+              placeholder="Phone Number"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Password</label>
+            <input
+            th:field="*{password}"
+            type="text"
+              class="form-control"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+      </div> -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-sm">
+          Create Project
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
