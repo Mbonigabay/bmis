@@ -35,33 +35,37 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Users</h4>
+                  <h4 class="card-title">Beneficiaries</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table id="usertable" class="table">
-                      <thead class="text-primary">
-                        <tr>
-                          <th>
-                            Username
-                          </th>
-                          <th>
-                            First Name
-                          </th>
-                          <th>
-                            Last Name
-                          </th>
-                          <th>
-                            Phone Number
-                          </th>
-                          <th>
-                            Email
-                          </th>
-                          <th>
-                            Actions
-                          </th>
-                        </tr>
-                      </thead>
+                    <table id="beneftable" class="table">
+                        <thead class="text-primary">
+                            <th>
+                              First Name
+                            </th>
+                            <th>
+                              Last Name
+                            </th>
+                            <th>
+                              Phone
+                            </th>
+                            <th>
+                              Gender
+                            </th>
+                            <th>
+                              Age
+                            </th>
+                            <th>
+                              Disability
+                            </th>
+                            <th>
+                              Reason of Intervention
+                            </th>
+                            <th>
+                              Actions
+                            </th>
+                          </thead>
                     </table>
                   </div>
                 </div>
@@ -71,47 +75,20 @@
         </div>
       </div>
     </div>
-    <!-- modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <form th:action="@{/users}" th:object="${user}" method="post">
-              <h3>Add a user</h3>
-              <div th:replace="inc/forms/createUser :: createUser"></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
     <script th:inline="javascript">
+        var userId =  [(${userId})];
       $(document).ready(function () {
-        var table = $("#usertable").DataTable({
-          sAjaxSource: "/api/users",
+        var table = $("#beneftable").DataTable({
+          sAjaxSource: "/api/beneficiaries/"+userId+"",
           sAjaxDataProp: "",
           columns: [
-            {
-              mRender: function (data, type, row) {
-                return (
-                  '<a style="color:black;" href="/admin/user/' +
-                  row.id +
-                  '">' +
-                  row.username +
-                  "</a>"
-                );
-              },
-            },
-            { data: "firstName" },
-            { data: "lastName" },
-            { data: "phone" },
-            { data: "email" },
+            { data: "beneficiary.firstName" },
+            { data: "beneficiary.lastName" },
+            { data: "beneficiary.phone" },
+            { data: "beneficiary.gender" },
+            { data: "beneficiary.age" },
+            { data: "beneficiary.disability" },
+            { data: "beneficiary.reasonOfIntervention" },
             {
               mRender: function (data, type, row) {
                 return (

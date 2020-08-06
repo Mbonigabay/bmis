@@ -15,6 +15,7 @@ import com.muhoza.mis.Service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -56,6 +57,12 @@ public class ApiController {
     @RequestMapping(value="/beneficiariesbyuser")
     public @ResponseBody List<InfoFile> getInfoFileByUser(Principal principal) {
         User user = authService.getAuthUser(principal);
+        return infoFileService.findByUser(user);
+    }
+
+    @RequestMapping(value="/beneficiaries/{id}")
+    public @ResponseBody List<InfoFile> getInfoFileByUserById(@PathVariable("id") int id) {
+        User user = userService.getUserById(id);
         return infoFileService.findByUser(user);
     }
     
