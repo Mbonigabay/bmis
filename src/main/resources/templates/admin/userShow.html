@@ -35,35 +35,45 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Project</h4>
+                  <h4 class="card-title">Beneficiaries</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table id="projecttable" class="table">
+                    <table id="beneftable" class="table">
                       <thead class="text-primary">
-                        <tr>
-                          <th>
-                            Id
-                          </th>
-                          <th>
-                            Project Name
-                          </th>
-                          <th>
-                            Project Manager
-                          </th>
-                          <th>
-                            Project Manager Phone
-                          </th>
-                          <th>
-                            Project Manager Email
-                          </th>
-                          <th>
-                            Project Are of Intervention
-                          </th>
-                          <th>
-                            Actions
-                          </th>
-                        </tr>
+                        <th>
+                          First Name
+                        </th>
+                        <th>
+                          Last Name
+                        </th>
+                        <th>
+                          Phone
+                        </th>
+                        <th>
+                          Other Mean Contact
+                        </th>
+                        <th>
+                          Status
+                        </th>
+                        <th>
+                          Gender
+                        </th>
+                        <th>
+                          Age
+                        </th>
+                        <th>
+                          Disability
+                        </th>
+                        <th>
+                          Reason of Intervention
+                        </th>
+                        <th>
+                          Added By
+                        </th>
+                        <th>
+                          Actions
+                        </th>
                       </thead>
                     </table>
                   </div>
@@ -74,41 +84,23 @@
         </div>
       </div>
     </div>
-    <!-- modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <form 
-            th:action="@{/projects}"
-            th:object="${project}"
-            method="post">
-              <h3>Add a project</h3>
-              <div th:replace="inc/forms/createProject :: createProject"></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
     <script th:inline="javascript">
+        var userId =  [(${userId})];
       $(document).ready(function () {
-        var table = $("#projecttable").DataTable({
-          sAjaxSource: "/api/projects",
+        var table = $("#beneftable").DataTable({
+          sAjaxSource: "/api/beneficiaries/"+userId+"",
           sAjaxDataProp: "",
           columns: [
-            { data: "id" },
-            { data: "name" },
-            { data: "manager" },
-            { data: "managerPhone" },
-            { data: "managerEmail" },
-            { data: "areaOfIntervention" },
+            { data: "beneficiary.firstName" },
+            { data: "beneficiary.lastName" },
+            { data: "beneficiary.phone" },
+            { data: "beneficiary.otherMeansOfContact" },
+            { data: "beneficiary.status" },
+            { data: "beneficiary.gender" },
+            { data: "beneficiary.age" },
+            { data: "beneficiary.disability" },
+            { data: "beneficiary.reasonOfIntervention" },
+            { data: "user.username" },
             {
               mRender: function (data, type, row) {
                 return (

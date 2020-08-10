@@ -51,6 +51,12 @@
                               Phone
                             </th>
                             <th>
+                              Other Mean Contact
+                            </th>
+                            <th>
+                              Status
+                            </th>
+                            <th>
                               Gender
                             </th>
                             <th>
@@ -61,6 +67,9 @@
                             </th>
                             <th>
                               Reason of Intervention
+                            </th>
+                            <th>
+                              Added By
                             </th>
                             <th>
                               Actions
@@ -81,13 +90,16 @@
           sAjaxSource: "/api/beneficiaries",
           sAjaxDataProp: "",
           columns: [
-            { data: "firstName" },
-            { data: "lastName" },
-            { data: "phone" },
-            { data: "gender" },
-            { data: "age" },
-            { data: "disability" },
-            { data: "reasonOfIntervention" },
+            { data: "beneficiary.firstName" },
+            { data: "beneficiary.lastName" },
+            { data: "beneficiary.phone" },
+            { data: "beneficiary.otherMeansOfContact" },
+            { data: "beneficiary.status" },
+            { data: "beneficiary.gender" },
+            { data: "beneficiary.age" },
+            { data: "beneficiary.disability" },
+            { data: "beneficiary.reasonOfIntervention" },
+            { data: "user.username" },
             {
               mRender: function (data, type, row) {
                 return (

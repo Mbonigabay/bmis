@@ -1,6 +1,5 @@
 package com.muhoza.mis.Controller;
 
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,11 +12,11 @@ import com.muhoza.mis.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -43,6 +42,12 @@ public class AdminController {
         model.addAttribute("projects", projects);
         model.addAttribute("user", user);
         return "admin/user";
+    }
+
+    @RequestMapping("/user/{id}")
+    public String getUserShowPage(Model model, @PathVariable("id") int id) {
+        model.addAttribute("userId", id);
+        return "admin/userShow";
     }
 
     @RequestMapping("/project")

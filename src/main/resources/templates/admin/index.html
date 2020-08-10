@@ -63,9 +63,6 @@
                         <th>
                           Reason of Intervention
                         </th>
-                        <th>
-                          Actions
-                        </th>
                       </thead>
                     </table>
                   </div>
@@ -82,25 +79,13 @@
           sAjaxSource: "/api/beneficiaries",
           sAjaxDataProp: "",
           columns: [
-            { data: "firstName" },
-            { data: "lastName" },
-            { data: "phone" },
-            { data: "gender" },
-            { data: "age" },
-            { data: "disability" },
-            { data: "reasonOfIntervention" },
-            {
-              mRender: function (data, type, row) {
-                return (
-                  '<div class="btn-group"><a class="btn btn-outline-dark btn-sm" href=add.html?id="' +
-                  row.id +
-                  '">Edit</a> <a class="btn btn-outline-dark btn-sm" href=add.html?id="' +
-                  row.id +
-                  '">Delete</a></div>'
-                );
-              },
-              searchable: false,
-            },
+            { data: "beneficiary.firstName" },
+            { data: "beneficiary.lastName" },
+            { data: "beneficiary.phone" },
+            { data: "beneficiary.gender" },
+            { data: "beneficiary.age" },
+            { data: "beneficiary.disability" },
+            { data: "beneficiary.reasonOfIntervention" }
           ],
           sdefaultContent: "<button>Click!</button>",
         });

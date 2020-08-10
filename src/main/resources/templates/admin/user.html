@@ -43,19 +43,25 @@
                       <thead class="text-primary">
                         <tr>
                           <th>
+                            Username
+                          </th>
+                          <th>
                             First Name
                           </th>
                           <th>
                             Last Name
                           </th>
                           <th>
-                            Username
-                          </th>
-                          <th>
                             Phone Number
                           </th>
                           <th>
                             Email
+                          </th>
+                          <th>
+                            Project
+                          </th>
+                          <th>
+                            Position
                           </th>
                           <th>
                             Actions
@@ -83,10 +89,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <form 
-            th:action="@{/users}"
-            th:object="${user}"
-            method="post">
+            <form th:action="@{/users}" th:object="${user}" method="post">
               <h3>Add a user</h3>
               <div th:replace="inc/forms/createUser :: createUser"></div>
             </form>
@@ -100,11 +103,23 @@
           sAjaxSource: "/api/users",
           sAjaxDataProp: "",
           columns: [
+            {
+              mRender: function (data, type, row) {
+                return (
+                  '<a style="color:black;" href="/admin/user/' +
+                  row.id +
+                  '">' +
+                  row.username +
+                  "</a>"
+                );
+              },
+            },
             { data: "firstName" },
             { data: "lastName" },
-            { data: "username" },
             { data: "phone" },
             { data: "email" },
+            { data: "project.name" },
+            { data: "position" },
             {
               mRender: function (data, type, row) {
                 return (
