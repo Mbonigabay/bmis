@@ -47,6 +47,8 @@ public class User {
     @Column(unique = true)
     @NotEmpty(message = "Phone number should not be empty") 
     private String phone;
+    @Size(min=3, message="Position should be at least 3 character")
+    private String position; 
     @CreationTimestamp
     private LocalDateTime createDateTime; 
     @UpdateTimestamp

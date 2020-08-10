@@ -50,8 +50,8 @@ public class ApiController {
     }
 
     @RequestMapping(value="/beneficiaries")
-    public @ResponseBody List<Beneficiary> getBeneficiaries() {	
-        return beneficiaryService.getAllBeneficiaries();
+    public @ResponseBody List<InfoFile> getBeneficiaries() {	
+        return infoFileService.getAllInfoFile();
     }
 
     @RequestMapping(value="/beneficiariesbyuser")

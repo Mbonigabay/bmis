@@ -26,5 +26,10 @@ public class IInfoFileService implements InfoFileService {
         return infoFileRepository.findByUser(user);
     }
 
+    @Override
+    public List<InfoFile> getAllInfoFile() {
+        return infoFileRepository.findAll();
+    }
+
 
 }

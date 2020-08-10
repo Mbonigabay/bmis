@@ -20,6 +20,10 @@ public class Project {
     @GeneratedValue
     private Integer id;
     private String name;
+    private String manager;
+    private String managerPhone;
+    private String managerEmail;
+    private String areaOfIntervention;
     @JsonIgnore
     @ToString.Exclude
     @OneToMany(mappedBy = "project")

@@ -49,6 +49,18 @@
                             Project Name
                           </th>
                           <th>
+                            Project Manager
+                          </th>
+                          <th>
+                            Project Manager Phone
+                          </th>
+                          <th>
+                            Project Manager Email
+                          </th>
+                          <th>
+                            Project Are of Intervention
+                          </th>
+                          <th>
                             Actions
                           </th>
                         </tr>
@@ -93,6 +105,10 @@
           columns: [
             { data: "id" },
             { data: "name" },
+            { data: "manager" },
+            { data: "managerPhone" },
+            { data: "managerEmail" },
+            { data: "areaOfIntervention" },
             {
               mRender: function (data, type, row) {
                 return (

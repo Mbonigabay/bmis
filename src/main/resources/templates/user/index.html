@@ -40,32 +40,41 @@
                 <div class="card-body">
                   <div class="table-responsive">
                     <table id="beneftable" class="table">
-                        <thead class="text-primary">
-                            <th>
-                              First Name
-                            </th>
-                            <th>
-                              Last Name
-                            </th>
-                            <th>
-                              Phone
-                            </th>
-                            <th>
-                              Gender
-                            </th>
-                            <th>
-                              Age
-                            </th>
-                            <th>
-                              Disability
-                            </th>
-                            <th>
-                              Reason of Intervention
-                            </th>
-                            <th>
-                              Actions
-                            </th>
-                          </thead>
+                      <thead class="text-primary">
+                        <th>
+                          First Name
+                        </th>
+                        <th>
+                          Last Name
+                        </th>
+                        <th>
+                          Phone
+                        </th>
+                        <th>
+                          Other Mean Contact
+                        </th>
+                        <th>
+                          Status
+                        </th>
+                        <th>
+                          Gender
+                        </th>
+                        <th>
+                          Age
+                        </th>
+                        <th>
+                          Disability
+                        </th>
+                        <th>
+                          Reason of Intervention
+                        </th>
+                        <th>
+                          Added By
+                        </th>
+                        <th>
+                          Actions
+                        </th>
+                      </thead>
                     </table>
                   </div>
                 </div>
@@ -107,10 +116,13 @@
             { data: "beneficiary.firstName" },
             { data: "beneficiary.lastName" },
             { data: "beneficiary.phone" },
+            { data: "beneficiary.otherMeansOfContact" },
+            { data: "beneficiary.status" },
             { data: "beneficiary.gender" },
             { data: "beneficiary.age" },
             { data: "beneficiary.disability" },
             { data: "beneficiary.reasonOfIntervention" },
+            { data: "user.username" },
             {
               mRender: function (data, type, row) {
                 return (

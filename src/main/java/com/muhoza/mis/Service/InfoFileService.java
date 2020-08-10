@@ -8,4 +8,5 @@ import com.muhoza.mis.Model.User;
 public interface InfoFileService {
     InfoFile storeInfofile(InfoFile infoFile);
     List<InfoFile> findByUser(User user);
+    List<InfoFile> getAllInfoFile();
 }

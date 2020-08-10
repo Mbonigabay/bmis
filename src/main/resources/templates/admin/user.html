@@ -58,6 +58,12 @@
                             Email
                           </th>
                           <th>
+                            Project
+                          </th>
+                          <th>
+                            Position
+                          </th>
+                          <th>
                             Actions
                           </th>
                         </tr>
@@ -112,6 +118,8 @@
             { data: "lastName" },
             { data: "phone" },
             { data: "email" },
+            { data: "project.name" },
+            { data: "position" },
             {
               mRender: function (data, type, row) {
                 return (
